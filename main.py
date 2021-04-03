@@ -55,7 +55,7 @@ class Bot(Thread):
         option.add_argument("-incognito")
         option.add_argument("--headless")
         option.add_argument(f"--proxy-server={self.proxy}:{self.port}")
-        print(f"{self.proxy}:{self.port}")
+        #print(f"{self.proxy}:{self.port}")
         browser = webdriver.Chrome(WEBDRIVER_LOCATION, chrome_options=option)
         while True:
             try:
