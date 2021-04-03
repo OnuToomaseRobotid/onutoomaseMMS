@@ -60,7 +60,6 @@ class Bot(Thread):
         while True:
             try:
                 browser.get(LINK)
-                sleep(1)
                 name_box = browser.find_element_by_id("et_pb_contact_name_0")
                 email_box = browser.find_element_by_id("et_pb_contact_email_0")
                 text_box = browser.find_element_by_id("et_pb_contact_message_0")
