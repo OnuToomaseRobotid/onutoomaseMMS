@@ -53,7 +53,7 @@ class Bot(Thread):
     def run(self):
         option = webdriver.ChromeOptions()
         option.add_argument("-incognito")
-        #option.add_argument("--headless")
+        option.add_argument("--headless")
         option.add_argument(f"--proxy-server={self.proxy}:{self.port}")
         print(f"{self.proxy}:{self.port}")
         browser = webdriver.Chrome(WEBDRIVER_LOCATION, chrome_options=option)
@@ -93,12 +93,13 @@ class Bot(Thread):
                 break
 runningBots = set()
 for ip in proxyList:
-    while len(runningBots) > 5:
+    while len(runningBots) > 15:
         continue
     bot = Bot(ip)
     bot.start()
     runningBots.add(ip)
 
+print("Proxy list empty.")
 while len(runningBots) != 0:
     sleep(5)
     print(str(len(runningBots)) + " bots still running.")
